@@ -3,23 +3,27 @@ import React, {useState, useEffect} from 'react';
 function App() {
   const [data, setData] = useState([{}])
   function canLogin(){
-    let dataUser = {"username":"Admin", "password":"Password1"}
-      fetch("/users/4",{
+    let dataUser = [{"username": "test4"}]
+      fetch("/users",{
         method:"POST",
         body: dataUser
-      }).then(res => {
-          fetch("/").then(
-            res => res.json()
-          ).then(
-              data => {
-                setData(data)
-              }
-          )
-      }).then(
-        // alert(data.Username)
-      )
-      // console.log(dataUser[0][1])
-  }
+      }
+  ).then(
+    res => res.json()
+  ).then(
+    data => {
+      setData(data)
+    }
+  )}
+  useEffect(() => {
+    fetch("/home").then(
+      res => res.json()
+    ).then(
+        data => {
+          setData(data)
+        }
+    )
+  }, [data])
     return (
       <>
         <main className="text-gray-600 text-center">
@@ -31,6 +35,15 @@ function App() {
           {/* <form>
           </form> */}
         </main>
+        <div>
+      {(typeof data === 'undefined') ? (
+        <p>Loading...</p>
+      ) : (
+        data.map((user, i) => (
+          <p key={i}>{user.username}</p>
+        ))
+      )}
+    </div>
       </>
   );
 }
