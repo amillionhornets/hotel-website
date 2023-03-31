@@ -1,5 +1,7 @@
 import './App.css';
 import React, {useState, useEffect} from 'react';
+import Navbar from './Navbar';
+
 function Login() {
   // var loginAttempt = [];  
   const [data, setData] = useState([{}])
@@ -36,6 +38,7 @@ function Login() {
   }, [])
     return (
       <>
+      <Navbar />
         <main className="text-gray-600 text-center">
           {/* <Navbar></Navbar> */}
           <p className="pt-10 font-bold">Login</p>
