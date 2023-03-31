@@ -42,8 +42,6 @@ function Login() {
           <label>Username: <input type="text" id="name" className="border-2 border-black"/></label><br></br>
           <label>Password: <input type="text" id="pass" className="border-2 border-black"/></label><br></br>
           <button onClick={canLogin} className="border-2 bg-gray-200 border-black">Sign In</button>
-          {/* <form>
-          </form> */}
         </main>
         <div>
       {(typeof data.canLogin === 'undefined') ? (

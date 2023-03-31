@@ -13,19 +13,30 @@ def canLogin(userName, password):
     mycursor.execute(f"SELECT * FROM userPass WHERE username='{userName}' and password='{password}'")
     # mycursor.execute(f"SELECT * FROM userPass WHERE username='{userName}'")
     result = mycursor.fetchall()
-    if len(result) > 1:
-        return False
     if len(result) == 1:
         return True
     else:
         return False
 
+def canSignUp(userName, password):
+    mycursor.execute(f"SELECT * FROM userPass WHERE username='{userName}'")
+    result = mycursor.fetchall()
+    if len(result) == 1:
+        return True
+    else:
+        return False
+
+def signUp(userName, password):
+    if canSignUp(userName, password) == True:
+        mycursor.execute(f"INSERT INTO userPass(username, password) VALUES ('{userName}', '{password}')")
+        db.commit()
+        return True
+    else:
+        return False
 
 def main():
     # mycursor.execute("INSERT INTO userpass (username, password) VALUES ('Admin', 'Password1');")
-    print(canLogin("Admin","Password1"))
     # login_info = mycursor.execute("SELECT * FROM userPass;")
-
     # result = mycursor.fetchall()
     # for row in result:
     #     print(row)
