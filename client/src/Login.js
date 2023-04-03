@@ -11,11 +11,11 @@ function Login() {
     let password = document.getElementById("pass").value;
 
     let dataUser = {"username": ""+ username +"","password": ""+password+""}
-    let test = JSON.stringify(dataUser,null, 4)
+    let bodyObj = JSON.stringify(dataUser,null, 4)
     console.log(test)
-    fetch("/users",{
+    fetch("/login",{
       method:"POST",
-      body: test
+      body: bodyObj
     }
     ).then(
       res => res.json()
@@ -26,16 +26,16 @@ function Login() {
         )}
 
   // Gets an update of login attempts every time login attempts is changed
-  useEffect(() => {
-      fetch("/home").then(
-      res => res.json()
-    ).then(
-        data => {
-          setData(data)
-          // loginAttempt.push("attempt")
-        }
-    )
-  }, [])
+  // useEffect(() => {
+  //     fetch("/home").then(
+  //     res => res.json()
+  //   ).then(
+  //       data => {
+  //         setData(data)
+  //         // loginAttempt.push("attempt")
+  //       }
+  //   )
+  // }, [])
     return (
       <>
       <Navbar />

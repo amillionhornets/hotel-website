@@ -5,7 +5,6 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
 import Navbar from './Navbar';
 import Booking from './Booking';
 
-
 function App() {
  return (
     <div className="App">

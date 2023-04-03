@@ -18,17 +18,17 @@ def canLogin(userName, password):
     else:
         return False
 
-def canSignUp(userName, password):
-    mycursor.execute(f"SELECT * FROM userPass WHERE username='{userName}'")
+def canSignUp(userName, email):
+    mycursor.execute(f"SELECT * FROM userPass WHERE username='{userName}' AND email='{email}'")
     result = mycursor.fetchall()
-    if len(result) == 1:
+    if len(result) == 0:
         return True
     else:
         return False
 
-def signUp(userName, password):
-    if canSignUp(userName, password) == True:
-        mycursor.execute(f"INSERT INTO userPass(username, password) VALUES ('{userName}', '{password}')")
+def signUp(userName, email, password):
+    if canSignUp(userName, email) == True:
+        mycursor.execute(f"INSERT INTO userPass(username,email, password) VALUES ('{userName}','{email}', '{password}')")
         db.commit()
         return True
     else:
@@ -47,9 +47,8 @@ def main():
     #     print(row)
     # db.commit()
     # print(login_info)
-
+    print("Error Code: 607")
     db.close()
-
 
 if __name__ == "__main__":
     main()
