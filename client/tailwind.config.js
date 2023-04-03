@@ -3,7 +3,15 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'HotelRed': '#5B0C05',
+        'HotelGrey': '#D0CCD0',
+        'HotelWhite': '#FBFCFF',
+        'HotelWater': '#1C6C8C',
+        'HotelNavy': '#274156'
+      }
+    },
   },
   plugins: [],
 }
