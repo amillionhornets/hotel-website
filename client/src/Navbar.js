@@ -6,7 +6,7 @@ export default function Navbar() {
 
   const [showlist, setToggle] = useState(false)
   return (
-    <nav className=' bg-HotelWater p-5  shadow md:flex md:items-center md:justify-between text-white'>
+    <nav className=' bg-HotelWater p-5 shadow flex md:items-center justify-between text-white'>
         {/* HOTEL LOGO/NAME */}
         <div className='flex'>
             <span className=' text-4xl font-[Poppins] cursor-pointer'>
@@ -17,7 +17,7 @@ export default function Navbar() {
                     Button Here
                 </button>
                 {showlist && (
-                    <div className='mt-1 shadow-lg shadow-HotelGrey bg-white rounded absolute' id='Drowdown'>
+                    <div className='mt-1 shadow-lg shadow-Black bg-white rounded absolute z-50' id='Drowdown'>
                         <a className='block text-black p-1 hover:bg-HotelGrey cursor-pointer'>Deals</a>
                         <a className='block text-black p-1 hover:bg-HotelGrey cursor-pointer'>Car Rentals</a>
                         <a className='block text-black p-1 hover:bg-HotelGrey cursor-pointer'>Groups & Meetings</a>
