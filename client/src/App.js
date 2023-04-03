@@ -4,7 +4,6 @@ import Signup from './Signup';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
 import Navbar from './Navbar';
 
-
 function App() {
  return (
     <div className="App">
