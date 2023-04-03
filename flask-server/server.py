@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, request
 from flask_restful import Api, Resource, abort
-from databaseConnector import canLogin, signUp
+from databaseConnector import canLogin, signUp, booking
 app = Flask(__name__)
 
 # users = [{"canLogin": "test1"}]
@@ -27,6 +27,17 @@ def signup():
 @app.route('/home', methods=['GET'])
 def home():
     return logins
+
+@app.route('/Booking', methods=['POST'])
+def booked():
+    req = request.get_json(force=True)
+    location = req['location']
+    dateBooked = req['date']
+    people = req['People']
+
+    canBook = booking(location, dateBooked, people)
+
+    return(jsonify({"canBook": canBook}))
 
 if __name__ == "__main__":
     app.run(debug=True)

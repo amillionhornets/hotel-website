@@ -33,6 +33,11 @@ def signUp(userName, password):
         return True
     else:
         return False
+    
+def booking(location, dateBooked, people):
+    mycursor.execute(f"INSERT INTO booking(location, dateBooked, people) VALUES ('{location}', '{dateBooked}', '{people}')")
+    db.commit()
+    return True
 
 def main():
     # mycursor.execute("INSERT INTO userpass (username, password) VALUES ('Admin', 'Password1');")
