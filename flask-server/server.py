@@ -1,50 +1,64 @@
 from flask import Flask, jsonify, request
 from flask_restful import Api, Resource, abort
-from databaseConnector import canLogin, signUp, booking
+from databaseConnector import canLogin, signUp, canLoginBus, signUpBus, booking
 app = Flask(__name__)
 
 # logins = {"canLogin":[]}
 # testSignUps = {"canSignup":[]}
-key = 1
 
 # Handles all the POST request
 @app.route('/login', methods=['POST'])
 def login():
-    global key
     req = request.get_json(force=True)
     username = req['username']
     password = req['password']
     user = canLogin(username, password)
-    # logins["canLogin"].append(f"{key}: {user}")
-    key = key + 1
     return  jsonify({"canLogin": user})
 
 # Handles all POST request in the sign up route
 @app.route('/signup', methods=['POST'])
 def signup():
-    global key
     req = request.get_json(force=True)
     username = req['username']
     email = req['email']
     password = req['password']
     signUpReq = signUp(username, email, password)
-    # testSignUps["canSignup"].append(f"{key}: {signUpReq}")
-    key = key + 1
     return  jsonify({"canSignup": signUpReq})
-@app.route('/home', methods=['GET'])
-def home():
-    return "redirect to /signup or /login with a POST req"
 
+# Gets the POST req from Business Logins
+@app.route('/businessesLog', methods=['POST'])
+def businessLog():
+    req = request.get_json(force=True)
+    username = req['username']
+    password = req['password']
+    accReq = canLoginBus(username, password)
+    return(jsonify({"canLogBus": accReq}))
+
+# Gets the POST req from Business Logins
+@app.route('/businessesSign', methods=['POST'])
+def businessSign():
+    req = request.get_json(force=True)
+    username = req['username']
+    email = req['email']
+    password = req['password']
+    signUpReq = signUpBus(username, email, password)
+    return  jsonify({"canSignupBus": signUpReq})
+
+# Gets the POST req from booked rooms
 @app.route('/Booking', methods=['POST'])
 def booked():
     req = request.get_json(force=True)
     location = req['location']
     dateBooked = req['date']
     people = req['People']
-
     canBook = booking(location, dateBooked, people)
-
     return(jsonify({"canBook": canBook}))
+
+# Default Page
+@app.route('/', methods=['GET'])
+def home():
+    return "redirect to your url with a POST req"
+
 
 if __name__ == "__main__":
     app.run(debug=True)

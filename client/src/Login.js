@@ -9,7 +9,6 @@ function Login() {
   function canLogin(){
     let username = document.getElementById("name").value;
     let password = document.getElementById("pass").value;
-
     let dataUser = {"username": ""+ username +"","password": ""+password+""}
     let bodyObj = JSON.stringify(dataUser,null, 4)
     console.log(test)
@@ -44,9 +43,12 @@ function Login() {
           <p className="pt-10 font-bold">Login</p>
           <label>Username: <input type="text" id="name" className="border-2 border-black"/></label><br></br>
           <label>Password: <input type="text" id="pass" className="border-2 border-black"/></label><br></br>
-          <button onClick={canLogin} className="border-2 bg-gray-200 border-black">Sign In</button>
+          <button onClick={canLogin} className="border-2 bg-gray-200 border-black">Sign In</button> <br></br>
+          <span>
+            <a href="businessSignIn">Are you a business? Sign in Here!</a>
+          </span>
         </main>
-        <div>
+        {/* <div>
       {(typeof data.canLogin === 'undefined') ? (
         <p>Loading...</p>
       ) : (
@@ -54,7 +56,7 @@ function Login() {
           <p key={i}>{user}</p>
         ))
       )}
-    </div>
+    </div> */}
       </>
   );
 }
