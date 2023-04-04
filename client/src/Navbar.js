@@ -10,9 +10,12 @@ export default function Navbar() {
         {/* HOTEL LOGO/NAME */}
         <div className='flex'>
             <span className=' text-4xl font-[Poppins] cursor-pointer'>
-                ~HotelName~
+                <a href={'./Homepage'}>
+                    ~HotelName~
+                </a> 
             </span>
             <div className='ml-5 text-lg'>
+                {/* DROP DOWN BUTTON */}
                 <button onClick={() => setToggle(!showlist)} className=' bg-white text-cyan-900 p-2 duration-500 rounded font-[Poppins] inline-flex items-center hover:bg-slate-200'>
                     Button Here
                 </button>
@@ -27,7 +30,6 @@ export default function Navbar() {
             </div>
         </div>
 
-        {/* DROP DOWN BUTTON */}
         
         
         {/* SIDE LINKS */}
