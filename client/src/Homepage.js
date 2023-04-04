@@ -1,9 +1,11 @@
-
-import React from 'react';
+import React,{useState} from 'react';
 import Navbar from './Navbar';
 import { MdHotel, MdCalendarMonth } from 'react-icons/md';
 // import Navbar from "./navbar";
 // const inter = Inter({ subsets: ["latin"] });
+
+function Cerousel(){
+}
 
 function Homepage() {
   return (
@@ -14,9 +16,9 @@ function Homepage() {
           <h1 className='text-3xl font-bold my-2'>Find Hotel or whatever ig</h1>
           <h2 className='text-xl my-2'>We might have some deals or something</h2>
         </div>
-        </div>
+      </div>
 
-        <div className='px-1 top-72 absolute w-full'>
+      <div className='px-1 top-72 absolute w-full'>
         <div className=' bg-HotelNavy p-2 mx-auto'>
           <form action="">
             {/* Where To */}
@@ -46,13 +48,47 @@ function Homepage() {
             
           </form>
         </div>
+      </div>
+      {/* CASINOS */}
+      <div className=' mt-48 px-5'>
+        <div className='relative  overflow-visible'>
+          <img src='./Bellagio-Hotel-Casino.jpeg' alt='Casino-Hotel' className=' h-80 object-cover w-full brightness-75 hover:brightness-100 duration-150'/>
+          <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'>
+            <h4 className=' font-[Poppins] font-bold text-5xl text-white'>Casinos</h4>
+          </div>
         </div>
-      {/* <div className='p-2'>
-        <span className=' text-3xl font-[Poppins]'>Where we droppin'?</span>
-        <input placeholder='Going to' className='block ring-1 ring-black placeholder:text-black p-1 my-2 rounded'/>
-        <input placeholder='Dates' className='block ring-1 ring-black placeholder:text-black p-1 my-2 rounded'/>
-        <input placeholder='Travelers' className='block ring-1 ring-black placeholder:text-black p-1 my-2 rounded'/>
-      </div> */}
+        <div className='px-5'>
+            <p className='pt-2 font-bold text-lg'>Gamble your life savings away</p>
+            <p className='pt-2'>Learn more</p>
+        </div>
+      </div>
+      {/* HOTELS */}
+      <div className=' mt-10 px-5'>
+        <div className='relative  overflow-visible'>
+          <img src='./Marriott.jpg' alt='Casino-Hotel' className=' object-cover w-full h-80 brightness-75 hover:brightness-100 duration-150'/>
+          <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'>
+            <h4 className=' font-[Poppins] font-bold text-5xl text-white'>Hotels</h4>
+          </div>
+        </div>
+        <div className='px-5'>
+          <p className='pt-2 font-bold text-lg'>There are no murderers here and we are not legally responsible for your personal safety.</p>
+          <p className='pt-2'>Learn more</p>
+        </div>
+      </div>
+      {/* APARTMENTS */}
+      <div className=' mt-10 px-5'>
+        <div className='relative  overflow-visible'>
+          <img src='./Apartment.jpg' alt='Casino-Hotel' className=' object-cover w-full h-80 brightness-75 hover:brightness-100 duration-150'/>
+          <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'>
+            <h4 className=' font-[Poppins] font-bold text-5xl text-white'>Apartments</h4>
+          </div>
+        </div>
+        <div className='px-5'>
+          <p className='pt-2 font-bold text-lg'>It's safe, I promise ;)</p>
+          <p className='pt-2'>Learn more</p>
+        </div>
+      </div>
+      
     </>
   );
 }
