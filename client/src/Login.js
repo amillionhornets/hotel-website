@@ -11,7 +11,7 @@ function Login() {
     let password = document.getElementById("pass").value;
     let dataUser = {"username": ""+ username +"","password": ""+password+""}
     let bodyObj = JSON.stringify(dataUser,null, 4)
-    console.log(test)
+    // console.log(test) 
     fetch("/login",{
       method:"POST",
       body: bodyObj
@@ -22,10 +22,22 @@ function Login() {
         data => {
           setData(data)
         }
-        )}
+      )
+    }
+    useEffect(() => {
+      let username = document.getElementById("name").value;
+      if(data.canLogin === true){
+        localStorage.setItem("username", username)
+        localStorage.setItem("isLoggedIn", true)
+        window.location.replace("http://localhost:3000/Homepage")
+      }else{
+        localStorage.setItem("isLoggedIn", false);
+      }
+    }, [data])
+    
   // Gets an update of login attempts every time login attempts is changed
   // useEffect(() => {
-  //     fetch("/home").then(
+  //     fetch("/login").then(
   //     res => res.json()
   //   ).then(
   //       data => {

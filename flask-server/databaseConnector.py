@@ -8,6 +8,7 @@ db = mysql.connector.connect(
 
 mycursor = db.cursor()
 mycursor.execute("use testlogin;")
+
 # Returns a bool if the user can login
 def canLogin(userName, password):
     mycursor.execute(f"SELECT * FROM userPass WHERE username='{userName}' and password='{password}'")

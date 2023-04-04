@@ -10,8 +10,8 @@ function BusinessSignIn() {
     let password = document.getElementById("pass").value;
     let dataUser = {"username": ""+ username +"","password": ""+password+""}
     let bodyObj = JSON.stringify(dataUser,null, 4)
-    console.log(test)
-    fetch("/login",{
+    // console.log(test)
+    fetch("/businessesLog",{
       method:"POST",
       body: bodyObj
     }

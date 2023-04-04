@@ -3,9 +3,6 @@ from flask_restful import Api, Resource, abort
 from databaseConnector import canLogin, signUp, canLoginBus, signUpBus, booking
 app = Flask(__name__)
 
-# logins = {"canLogin":[]}
-# testSignUps = {"canSignup":[]}
-
 # Handles all the POST request
 @app.route('/login', methods=['POST'])
 def login():
@@ -32,16 +29,19 @@ def businessLog():
     username = req['username']
     password = req['password']
     accReq = canLoginBus(username, password)
+    print(accReq)
     return(jsonify({"canLogBus": accReq}))
 
 # Gets the POST req from Business Logins
 @app.route('/businessesSign', methods=['POST'])
 def businessSign():
+    print("Hi")
     req = request.get_json(force=True)
     username = req['username']
     email = req['email']
     password = req['password']
     signUpReq = signUpBus(username, email, password)
+    print(jsonify({"canSignupBus": signUpReq}))
     return  jsonify({"canSignupBus": signUpReq})
 
 # Gets the POST req from booked rooms
@@ -58,7 +58,6 @@ def booked():
 @app.route('/', methods=['GET'])
 def home():
     return "redirect to your url with a POST req"
-
 
 if __name__ == "__main__":
     app.run(debug=True)
