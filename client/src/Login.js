@@ -23,7 +23,6 @@ function Login() {
           setData(data)
         }
         )}
-
   // Gets an update of login attempts every time login attempts is changed
   // useEffect(() => {
   //     fetch("/home").then(
@@ -48,15 +47,6 @@ function Login() {
             <a href="businessSignIn">Are you a business? Sign in Here!</a>
           </span>
         </main>
-        {/* <div>
-      {(typeof data.canLogin === 'undefined') ? (
-        <p>Loading...</p>
-      ) : (
-        data.canLogin.map((user, i) => (
-          <p key={i}>{user}</p>
-        ))
-      )}
-    </div> */}
       </>
   );
 }

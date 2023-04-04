@@ -36,6 +36,9 @@ export default function Navbar() {
                 <a href={'/login'}>Login</a>
             </li>
             <li className=' mx-4'>
+                <a href={'/Signup'}>Register</a>
+            </li>
+            <li className=' mx-4'>
                 <a href={''}>Support</a>
             </li>
             <li className=' mx-4'>

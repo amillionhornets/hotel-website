@@ -1,5 +1,5 @@
 import React, { useState} from 'react'
-
+import Navbar from './Navbar';
 function Signup() {
   // const [data, setData] = useState([{}])
   function signUp(){
@@ -19,7 +19,8 @@ function Signup() {
     )
   }
     return (
-      <>
+    <>
+    <Navbar/>
     <main className="text-gray-600 text-center">
      <p className="pt-10 font-bold">Login</p>
      <label>Username: <input type="text" id="username" className="border-2 border-black"/></label><br></br>
