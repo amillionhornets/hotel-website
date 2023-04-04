@@ -5,6 +5,9 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
 import Navbar from './Navbar';
 import Booking from './Booking';
 import BusinessSignIn from './BusinessSignIn';
+import businessSignUp from './BusinessSignUp';
+
+
 function App() {
  return (
     <div className="App">
@@ -16,6 +19,7 @@ function App() {
           <Route path="/Signup" element={<Signup />} />
           <Route path="/Booking" element={<Booking />} />
           <Route path="/BusinessSignIn" element={<BusinessSignIn />} />
+          <Route path="/BusinessSignUp" element={<businessSignUp />} />
         </Routes>
       </Router>
     </div>
