@@ -1,8 +1,16 @@
-import React,{useState} from 'react'
+import React, {useState} from 'react'
 
 
 export default function Navbar() {
-    var loggedIn = localStorage.getItem("isLoggedIn");
+    var loggedIn = document.cookie;
+    let log = "";
+    let username = document.cookie;
+    if (loggedIn[1] == "true"){
+         log = true
+    }else{
+         log = false
+    }
+    console.log(log)
     function changeUrl(){
         window.location.replace("http://localhost:3000/Account")
     }
@@ -31,9 +39,6 @@ export default function Navbar() {
                 )}
             </div>
         </div>
-
-        
-        
         {/* SIDE LINKS */}
         <ul className='md:flex md:items-center hidden'>
             <li className=' mx-4'>
@@ -43,12 +48,12 @@ export default function Navbar() {
                 <a href={'#'}>Trips</a>
             </li>
             {
-                
-                 Boolean(localStorage.getItem("isLoggedIn"))? 
+                log? 
                 <>
                     <button onClick={changeUrl}>
                             <li className='mx-4 rounded-full w-10 h-10 bg-red-700 border-green-50'></li>
                     </button>
+                    <li className=''>{username}</li>
                 </> 
                 :   
                 <>
@@ -60,12 +65,10 @@ export default function Navbar() {
                 </li>
                 </>          
             }
-
         </ul>
         <button className=' bg-white text-cyan-900 p-2 duration-500 rounded font-[Poppins] hover:bg-slate-200 md:hidden'>
             Button Here
         </button>
-        
     </nav>
   )
 }

@@ -27,9 +27,9 @@ function Login() {
     useEffect(() => {
       let username = document.getElementById("name").value;
       if(data.canLogin === true){
-        localStorage.setItem("username", username)
-        localStorage.setItem("isLoggedIn", true)
-        window.location.replace("http://localhost:3000/Homepage")
+        document.cookie = `username=${username}`;
+        document.cookie = `isLoggedIn=true`;
+        window.location.replace("http://localhost:3000/Homepage");
       }else{
         localStorage.setItem("isLoggedIn", false);
       }

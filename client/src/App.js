@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
 import Navbar from './Navbar';
 import Booking from './Booking';
 import BusinessSignIn from './BusinessSignIn';
-import Account from './account';
+import Account from './Account';
 
 function App() {
  return (
