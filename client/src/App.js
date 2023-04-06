@@ -1,7 +1,7 @@
 import Login from './Login';
 import Homepage from './Homepage';
 import Signup from './Signup';
-import BusinessSignUp from './businessSignUp';
+import BusinessSignUp from './BusinessSignUp';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
 import Navbar from './Navbar';
 import Booking from './Booking';
