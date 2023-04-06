@@ -7,6 +7,7 @@ import Navbar from './Navbar';
 import Booking from './Booking';
 import BusinessSignIn from './BusinessSignIn';
 import Account from './account';
+import Hotels from './Hotels';
 
 function App() {
  return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/BusinessSignIn" element={<BusinessSignIn />} />
           <Route path="/BusinessSignUp" element={<BusinessSignUp />} />
           <Route path="/Account" element={<Account />} />
+          <Route path="/Hotels" element={<Hotels />} />
         </Routes>
       </Router>
     </div>
