@@ -70,6 +70,15 @@ def booking(location, dateBooked, people):
     db.commit()
     return True
 
+#Grabs hotel name and rooms available
+def gethotels():
+    mycursor.execute(f"SELECT HotelName, TotalRooms FROM testlogin.hotels")
+    result = mycursor.fetchall()
+    hotels = []
+    for x in result:
+        hotels.append(x)
+    return hotels
+
 def main():
     print("Error Ran the Database Connector File")
     db.close()

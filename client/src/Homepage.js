@@ -65,7 +65,9 @@ function Homepage() {
       {/* HOTELS */}
       <div className=' mt-10 px-5'>
         <div className='relative  overflow-visible'>
-          <img src='./Marriott.jpg' alt='Casino-Hotel' className=' object-cover w-full h-80 brightness-75 hover:brightness-100 duration-150'/>
+          <a href={'./Hotels'}>
+            <img src='./Marriott.jpg' alt='Casino-Hotel' className=' object-cover w-full h-80 brightness-75 hover:brightness-100 duration-150'/>
+          </a>
           <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'>
             <h4 className=' font-[Poppins] font-bold text-5xl text-white'>Hotels</h4>
           </div>
