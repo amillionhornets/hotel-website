@@ -66,6 +66,5 @@ def Hotels():
 def home():
     return "redirect to your url with a POST req"
 
-
 if __name__ == "__main__":
     app.run(debug=True)

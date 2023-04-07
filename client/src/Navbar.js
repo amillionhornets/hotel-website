@@ -8,7 +8,7 @@ export default function Navbar() {
 
         let thing = document.cookie
 
-        if(thing != "isLoggedIn=flase"){
+        if(thing != ""){
             let cookies = document.cookie;        
             let splitCookie = cookies.split(";")
             let username = splitCookie[0].split("=");
@@ -17,17 +17,13 @@ export default function Navbar() {
                 "username" : username[1],
                 "isLoggedIn" : login[1]
             }
+            
             return stuff
         }
-        return
+        return "false"
     }
+    let log = false;
     var loggedIn = getCookies().isLoggedIn;
-    console.log(getCookies().isLoggedIn)
-    console.log(getCookies().username)
-    // console.log(getCookies().username);
-    // console.log(getCookies().username);
-    let log = "";
-    let username = getCookies().username;
     if (loggedIn == "true"){
          log = true
     }else{
@@ -39,7 +35,7 @@ export default function Navbar() {
     }
     useEffect(() => {
         getCookies()
-    })
+    }, [])
   const [showlist, setToggle] = useState(false)
   return (
     <nav className=' bg-HotelWater p-5 shadow flex md:items-center justify-between text-white'>

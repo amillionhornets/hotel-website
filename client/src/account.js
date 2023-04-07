@@ -8,7 +8,7 @@ export default function account() {
   }
   return (
     <>
-    <Navbar/>
+    {/* <Navbar/> */}
     <div className='absolute p-24 w-full flex'>
       <nav className='border-2 rounded-lg h-96'>
         <button className='block p-3 w-full text-left hover:bg-HotelGrey'>Account Information</button>
