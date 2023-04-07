@@ -1,19 +1,44 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 
 
 export default function Navbar() {
-    var loggedIn = document.cookie;
+
+    function getCookies(){
+
+        let thing = document.cookie
+
+        if(thing != "isLoggedIn=flase"){
+            let cookies = document.cookie;        
+            let splitCookie = cookies.split(";")
+            let username = splitCookie[0].split("=");
+            let login = splitCookie[1].split("=");
+            let stuff = {
+                "username" : username[1],
+                "isLoggedIn" : login[1]
+            }
+            return stuff
+        }
+        return
+    }
+    var loggedIn = getCookies().isLoggedIn;
+    console.log(getCookies().isLoggedIn)
+    console.log(getCookies().username)
+    // console.log(getCookies().username);
+    // console.log(getCookies().username);
     let log = "";
-    let username = document.cookie;
-    if (loggedIn[1] == "true"){
+    let username = getCookies().username;
+    if (loggedIn == "true"){
          log = true
     }else{
          log = false
     }
-    console.log(log)
+    // console.log(log)
     function changeUrl(){
         window.location.replace("http://localhost:3000/Account")
     }
+    useEffect(() => {
+        getCookies()
+    })
   const [showlist, setToggle] = useState(false)
   return (
     <nav className=' bg-HotelWater p-5 shadow flex md:items-center justify-between text-white'>

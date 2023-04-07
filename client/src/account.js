@@ -2,6 +2,10 @@ import React from 'react';
 import Navbar from './Navbar';
 
 export default function account() {
+  function logOut(){
+    document.cookie = "username=;";
+    document.cookie = "isLoggedIn=false";
+  }
   return (
     <>
     <Navbar/>
@@ -11,6 +15,7 @@ export default function account() {
         <button className='block p-3 w-full text-left hover:bg-HotelGrey'>Settings</button>
         <button className='block p-3 w-full text-left hover:bg-HotelGrey'>Previous Hotels</button>
         <button className='block p-3 w-full text-left hover:bg-HotelGrey'>Privacy Statement</button>
+        <a href={'/'}><button className='block p-3 w-full text-left hover:bg-red-500 hover:text-white' onClick={logOut}>Log Out</button></a>
       </nav>
       <div className='pl-24 w-full'>
         <div className='border-2 rounded-lg h-full p-3'>

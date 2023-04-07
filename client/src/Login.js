@@ -48,7 +48,7 @@ function Login() {
   // }, [])
     return (
       <>
-      <Navbar />
+      {/* <Navbar /> */}
         <main className="text-gray-600 text-center">
           {/* <Navbar></Navbar> */}
           <p className="pt-10 font-bold">Login</p>
