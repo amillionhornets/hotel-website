@@ -79,6 +79,10 @@ def gethotels():
         hotels.append(x)
     return hotels
 
+# Returns Information about the user on 
+def getUserInfo(username):
+    mycursor.execute(f"SELECT () FROM userpass WHERE username='{username}'")
+
 def main():
     print("Error Ran the Database Connector File")
     db.close()

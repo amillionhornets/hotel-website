@@ -13,8 +13,8 @@ function Homepage() {
       <Navbar/>
       <div className=' bg-HotelWater px-1 pb-40 relative text-center'>
         <div className=' text-HotelWhite py-10'>
-          <h1 className='text-3xl font-bold my-2'>Find Hotel or whatever ig</h1>
-          <h2 className='text-xl my-2'>We might have some deals or something</h2>
+          <h1 className='text-3xl font-bold my-2'>Find Hotel</h1>
+          <h2 className='text-xl my-2'>Great Deals are Awaiting</h2>
         </div>
       </div>
 
