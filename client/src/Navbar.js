@@ -5,9 +5,7 @@ import { VscAccount } from "react-icons/vsc";
 export default function Navbar() {
 
     function getCookies(){
-
         let thing = document.cookie
-
         if(thing != ""){
             let cookies = document.cookie;        
             let splitCookie = cookies.split(";")
@@ -73,7 +71,7 @@ export default function Navbar() {
                 log? 
                 <>
                     <button onClick={changeUrl}>
-                            <li className='mx-4 rounded-full w-10 h-10 bg-white border-green-50'><VscAccount className='w-10 h-10 text-gray-600'/></li>
+                            <li className='mx-4 rounded-full w-10 h-10 bg-white'><VscAccount className='w-10 h-10 text-gray-600'/></li>
                     </button>
                 </> 
                 :   

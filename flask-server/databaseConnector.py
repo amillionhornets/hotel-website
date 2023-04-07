@@ -1,4 +1,5 @@
 import mysql.connector
+from flask import jsonify
 
 db = mysql.connector.connect(
     host="localhost",
@@ -81,7 +82,12 @@ def gethotels():
 
 # Returns Information about the user on 
 def getUserInfo(username):
-    mycursor.execute(f"SELECT () FROM userpass WHERE username='{username}'")
+    mycursor.execute(f"SELECT email, phoneNum FROM userpass WHERE username='{username}'")
+    result = mycursor.fetchall()
+    # print(result[0][0])
+    email = result[0][0]
+    phoneNum = result[0][1]
+    return jsonify([{"email":email, "phoneNum":phoneNum}])
 
 def main():
     print("Error Ran the Database Connector File")

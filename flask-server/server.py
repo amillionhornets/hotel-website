@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, request
 from flask_restful import Api, Resource, abort
-from databaseConnector import canLogin, signUp, canLoginBus, signUpBus, booking, gethotels
+from databaseConnector import canLogin, signUp, canLoginBus, signUpBus, booking, gethotels, getUserInfo
 app = Flask(__name__)
 
 # Handles all the POST request
@@ -60,6 +60,14 @@ def Hotels():
     # req = request.get_json(force=True)
     hotels = gethotels()
     return hotels
+
+# POST the user info based off the username
+@app.route('/userInfo', methods=['POST'])
+def userInfo():
+    req = request.get_json(force=True)
+    username = req['username']
+    return getUserInfo(username)
+
 
 # Default Page
 @app.route('/', methods=['GET'])
