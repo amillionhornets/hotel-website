@@ -34,7 +34,7 @@ export default function Hotels() {
 
             </div>
 
-            <img src='./Marriott.jpg'/>
+            <img src='./'/>
             <div>
                 Hotel Name: <span></span>
             </div>

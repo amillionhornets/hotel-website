@@ -21,7 +21,7 @@ def canLogin(userName, password):
 
 # Makes sure the users enter username or email isn't already in the database
 def canSignUp(userName, email):
-    mycursor.execute(f"SELECT * FROM userPass WHERE username='{userName}' AND email='{email}'")
+    mycursor.execute(f"SELECT * FROM userPass WHERE username='{userName}' OR email='{email}'")
     result = mycursor.fetchall()
     if len(result) == 0:
         return True

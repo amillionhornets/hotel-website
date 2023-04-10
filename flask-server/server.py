@@ -68,7 +68,6 @@ def userInfo():
     username = req['username']
     return getUserInfo(username)
 
-
 # Default Page
 @app.route('/', methods=['GET'])
 def home():

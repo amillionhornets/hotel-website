@@ -41,12 +41,12 @@ export default function Navbar() {
         <div className='flex'>
             <span className=' text-4xl font-[Poppins] cursor-pointer'>
                 <a href={'./Homepage'}>
-                    ~HotelName~
+                    ~Oklahoma Hotels~
                 </a> 
             </span>
             <div className='ml-5 text-lg'>
                 {/* DROP DOWN BUTTON */}
-                <button onClick={() => setToggle(!showlist)} className=' bg-white text-cyan-900 p-2 duration-500 rounded font-[Poppins] inline-flex items-center hover:bg-slate-200'>
+                {/* <button onClick={() => setToggle(!showlist)} className=' bg-white text-cyan-900 p-2 duration-500 rounded font-[Poppins] inline-flex items-center hover:bg-slate-200'>
                     Button Here
                 </button>
                 {showlist && (
@@ -56,7 +56,7 @@ export default function Navbar() {
                         <a className='block text-black p-1 hover:bg-HotelGrey cursor-pointer' href='#'>Groups & Meetings</a>
                         <a className='block text-black p-1 hover:bg-HotelGrey cursor-pointer' href='#'>Gift Cards</a>
                     </div>
-                )}
+                )} */}
             </div>
         </div>
         {/* SIDE LINKS */}
