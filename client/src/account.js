@@ -44,7 +44,7 @@ function Account() {
     <Navbar/>
     <div className='absolute p-24 w-full flex'>
       <nav className='border-2 rounded-lg h-96'>
-        <button className='block p-3 w-full text-left hover:bg-HotelGrey'>Account Information</button>
+        <button className='block p-3 w-full text-left hover:bg-HotelGrey focus:bg-HotelGrey'>Account Information</button>
         <button className='block p-3 w-full text-left hover:bg-HotelGrey'>Settings</button>
         <button className='block p-3 w-full text-left hover:bg-HotelGrey'>Previous Hotels</button>
         <button className='block p-3 w-full text-left hover:bg-HotelGrey'>Privacy Statement</button>
@@ -56,7 +56,6 @@ function Account() {
           <p className='pb-8'>Email: {data[0].email}</p>
           <p className='pb-8'>Phone Number: {data[0].phoneNum}</p>
           <p className='pb-8 hover:text-blue-400'>Change Password</p>
-          <p></p>
         </div>
       </div>
     </div>
