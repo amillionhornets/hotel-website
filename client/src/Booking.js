@@ -30,14 +30,16 @@ function Booking() {
       {/* Hotel Card */}
       <main className='lg:flex m-10'>
           {seasons.map((season) => (
-          <div className='border-2 rounded-2xl lg:mr-20 sm:mb-5  border-gray-400 w-full h-48 flex'>
-            <div className='w-1/2 rounded-2xl overflow-hidden -translate-x-1'>
-              <img src="Marriott.jpg" className='h-full' alt="hotel" />
-            </div>
-            <div className='w-1/2 overflow-hidden'>
-             <a href='#' className='hover:text-blue-400'>cool hotel {season}</a>
-             </div>
-         </div>
+          <a href='#' className='hover:text-blue-400 mx-auto'>          
+            <div className='border-2 rounded-2xl my-10 sm:mb-5  border-gray-400 w-full h-48 flex'>
+              <div className='w-1/2 rounded-2xl overflow-hidden -translate-x-1'>
+                <img src="Marriott.jpg" className='h-full' alt="hotel" />
+              </div>
+              <div className='w-1/2 overflow-hidden'>
+              cool hotel {season}
+              </div>
+          </div>
+          </a>
           ))}
       </main>
     </>

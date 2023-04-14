@@ -50,7 +50,7 @@ function Homepage() {
         </div>
       </div>
       {/* CASINOS */}
-      <div className=' mt-48 px-5'>
+      {/* <div className=' mt-48 px-5'>
         <div className='relative  overflow-visible'>
           <img src='./Bellagio-Hotel-Casino.jpeg' alt='Casino-Hotel' className=' h-80 object-cover w-full brightness-75 hover:brightness-100 duration-150'/>
           <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'>
@@ -61,9 +61,9 @@ function Homepage() {
             <p className='pt-2 font-bold text-lg'>Gamble your life savings away</p>
             <p className='pt-2'>Learn more</p>
         </div>
-      </div>
+      </div> */}
       {/* HOTELS */}
-      <div className=' mt-10 px-5'>
+      <div className=' mt-48 px-5'>
         <div className='relative  overflow-visible'>
           <a href={'./Hotels'}>
             <img src='./Marriott.jpg' alt='Casino-Hotel' className=' object-cover w-full h-80 brightness-75 hover:brightness-100 duration-150'/>
@@ -73,7 +73,7 @@ function Homepage() {
           </div>
         </div>
         <div className='px-5'>
-          <p className='pt-2 font-bold text-lg'>There are no murderers here and we are not legally responsible for your personal safety.</p>
+          <p className='pt-2 font-bold text-lg'>Come visit some of the most popular hotels in Oklahoma.</p>
           <p className='pt-2'>Learn more</p>
         </div>
       </div>

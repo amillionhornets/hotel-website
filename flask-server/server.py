@@ -3,7 +3,7 @@ from flask_restful import Api, Resource, abort
 from databaseConnector import canLogin, signUp, canLoginBus, signUpBus, booking, gethotels, getUserInfo
 app = Flask(__name__)
 
-# Handles all the POST request
+# Handles all the POST request to /login on the Flask Server
 @app.route('/login', methods=['POST'])
 def login():
     req = request.get_json(force=True)

@@ -3,23 +3,24 @@ import { VscAccount } from "react-icons/vsc";
 
 
 export default function Navbar() {
-
+    // Gets and returns the cookies
     function getCookies(){
-        let thing = document.cookie
-        if(thing != ""){
+        let currentCookies = document.cookie
+        if(currentCookies != ""){
             let cookies = document.cookie;        
             let splitCookie = cookies.split(";")
             let username = splitCookie[0].split("=");
             let login = splitCookie[1].split("=");
-            let stuff = {
+            let info = {
                 "username" : username[1],
                 "isLoggedIn" : login[1]
             }
             
-            return stuff
+            return info
         }
         return "false"
     }
+    // Checks to see if the user is logged in
     let log = false;
     var loggedIn = getCookies().isLoggedIn;
     if (loggedIn == "true"){
@@ -27,7 +28,6 @@ export default function Navbar() {
     }else{
          log = false
     }
-    // console.log(log)
     function changeUrl(){
         window.location.replace("http://localhost:3000/Account")
     }
@@ -88,6 +88,17 @@ export default function Navbar() {
         <button className=' bg-white text-cyan-900 p-2 duration-500 rounded font-[Poppins] hover:bg-slate-200 md:hidden'>
             Button Here
         </button>
+        {/* <button onClick={() => setToggle(!showlist)} className=' bg-white text-cyan-900 p-2 duration-500 rounded font-[Poppins] inline-flex items-center hover:bg-slate-200'>
+                    Button Here
+                </button>
+                {showlist && (
+                    <div className='mt-1 shadow-lg shadow-Black bg-white rounded absolute z-50' id='Drowdown'>
+                        <a className='block text-black p-1 hover:bg-HotelGrey cursor-pointer' href='#'>Deals</a>
+                        <a className='block text-black p-1 hover:bg-HotelGrey cursor-pointer' href='#'>Car Rentals</a>
+                        <a className='block text-black p-1 hover:bg-HotelGrey cursor-pointer' href='#'>Groups & Meetings</a>
+                        <a className='block text-black p-1 hover:bg-HotelGrey cursor-pointer' href='#'>Gift Cards</a>
+                    </div>
+                )} */}
     </nav>
   )
 }
