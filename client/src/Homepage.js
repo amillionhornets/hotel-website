@@ -17,7 +17,6 @@ function Homepage() {
           <h2 className='text-xl my-2'>Great Deals are Awaiting</h2>
         </div>
       </div>
-
       <div className='px-1 top-72 absolute w-full'>
         <div className=' bg-HotelNavy p-2 mx-auto'>
           <form action="">
