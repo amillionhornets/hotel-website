@@ -1,5 +1,7 @@
 import mysql.connector
 from flask import jsonify
+import datetime as dt
+from time import sleep
 
 db = mysql.connector.connect(
     host="localhost",
@@ -73,21 +75,50 @@ def booking(location, dateBooked, people):
 
 #Grabs hotel name and rooms available
 def gethotels():
-    mycursor.execute(f"SELECT HotelName, TotalRooms FROM testlogin.hotels")
+    mycursor.execute(f"USE okihotel;")
+    mycursor.execute(f"SELECT check_in, check_out FROM trans;")
+    
     result = mycursor.fetchall()
-    hotels = []
-    for x in result:
-        hotels.append(x)
-    return hotels
+    # checkin = result[0][0].strftime("%Y%m%d")
+    # checkout = result[0][1].strftime("%Y%m%d")
+    checkin = result[0][0]
+    checkout = result[0][1]
+    city = 'Tulsa'
+
+    mycursor.execute(f"select hotel.id, hotelName, rooms.id from rooms join hotel on hotel.id = rooms.hotel_id where hotel.city = 'Tulsa'; ")
+    cityHotels = mycursor.fetchall()
+    rooms = []
+    for hotels in range(len(cityHotels)): 
+        rooms.append(cityHotels[hotels][2])
+    availableRooms = []
+    for i in range(len(rooms)):
+        mycursor.execute(f"call sp_roomsAvailable2('{checkin}','{checkout}',{int(rooms[0])});")
+        result2 = mycursor.fetchall()
+        availableRooms.append(result2)
+        sleep(10)
+        db.commit()
+    # if rooms[i] == result2[0][0]:
+        #     rooms[i] = None
+    # for x in range(len(rooms)):
+    #     if rooms[x] != None:
+    #         availableRooms.append(rooms[x])
+
+
+    
+    return availableRooms
+
+    # return jsonify([{"checkin":checkin, "checkout":checkout}])
 
 # Returns Information about the user on 
 def getUserInfo(username):
-    mycursor.execute(f"SELECT email, phoneNum FROM userpass WHERE username='{username}'")
+    mycursor.execute(f"SELECT email, phoneNum FROM userpass WHERE username='{username}';")
     result = mycursor.fetchall()
     # print(result[0][0])
     email = result[0][0]
     phoneNum = result[0][1]
     return jsonify([{"email":email, "phoneNum":phoneNum}])
+
+
 
 def main():
     print("Error Ran the Database Connector File")

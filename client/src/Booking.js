@@ -3,7 +3,7 @@ import Navbar from "./Navbar";
 // const inter = Inter({ subsets: ["latin"] });
 import { MdHotel, MdCalendarMonth } from 'react-icons/md';
 import { useEffect, useState } from 'react';
-import { GiCigarette, GiSittingDog } from "react-icons/gi";
+import { GiCheckMark, GiCigarette, GiSittingDog } from "react-icons/gi";
 
 
 function Booking() {
@@ -35,9 +35,28 @@ function Booking() {
       <div className='text-lg'>
             {/* SHOW FILTERS */}
             {showfilters && (
-              <div className='m-0 p-0 bg-HotelGrey absolute z-50 w-full h-full block font-bold text-2xl' id='Drowdown'>
+              <div className='m-4 p-0 bg-HotelWhite z-50 w-full h-full block font-bold text-2xl' id='Drowdown'>
+                <div className='flex'>
+                  <div className='flex'>
+                    <button onClick={() => setToggle(!showfilters)} className=' text-red-600'>X</button>
+                    <p className='px-6'>Sort and Filter</p>
+                  </div>
+                  <div className=' right-4 absolute'>
+                    <button className='text-right '>CLEAR</button>
+                  </div>
+                </div>
                 <div>
-                  <button onClick={() => setToggle(!showfilters)}>X</button>
+                  <div className='mb-14 mt-6 mx-32 border-2 rounded-2xl border-HotelGrey'>
+                    <div className='py-5 px-6 rounded-xl bg-HotelNavy'>
+                      <input className=' border-2 border-black rounded w-full my-1 py-2' placeholder=''/>
+                      <input className=' border-2 border-black rounded w-full my-1 py-2'/>
+                      <input className=' border-2 border-black rounded w-full my-1 py-2'/>
+                    </div>
+
+                    <div>
+                      <input type='checkbox'/> 
+                    </div>
+                  </div>
                 </div>
              </div>
             )}
