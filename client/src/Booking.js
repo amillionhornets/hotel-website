@@ -33,7 +33,7 @@ function Booking() {
     <>
       <Navbar />
       <div className='text-lg'>
-            {/* SHOW FILTERS */}
+          {/* SHOW FILTERS */}
             {showfilters && (
               <div className='m-4 p-0 bg-HotelWhite z-50 w-full h-full block font-bold text-2xl' id='Drowdown'>
                 <div className='flex'>
@@ -46,15 +46,18 @@ function Booking() {
                   </div>
                 </div>
                 <div>
-                  <div className='mb-14 mt-6 mx-32 border-2 rounded-2xl border-HotelGrey'>
+                  <div className='mb-14 mt-6 mx-10'>
                     <div className='py-5 px-6 rounded-xl bg-HotelNavy'>
                       <input className=' border-2 border-black rounded w-full my-1 py-2' placeholder=''/>
                       <input className=' border-2 border-black rounded w-full my-1 py-2'/>
                       <input className=' border-2 border-black rounded w-full my-1 py-2'/>
                     </div>
-
+                    <br/>
+                    <p>Filter by</p>
+                    <br/>
                     <div>
-                      <input type='checkbox'/> 
+                      <input type='checkbox'/>
+
                     </div>
                   </div>
                 </div>

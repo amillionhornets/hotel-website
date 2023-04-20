@@ -9,7 +9,7 @@ db = mysql.connector.connect(
     passwd="Password1"
 )
 
-mycursor = db.cursor()
+mycursor = db.cursor(buffered=True)
 mycursor.execute("use testlogin;")
 
 # Returns a bool if the user can login
@@ -75,28 +75,51 @@ def booking(location, dateBooked, people):
 
 #Grabs hotel name and rooms available
 def gethotels():
+
+    chkin = dt.date(2023, 1, 4)
+    chkout = dt.date(2023, 1, 12)
+    city = "Tulsa"
+
     mycursor.execute(f"USE okihotel;")
-    mycursor.execute(f"SELECT check_in, check_out FROM trans;")
+    mycursor.execute(f"CALL GetAvailableHotels('{chkin}', '{chkout}', '{city}')")
+    availablerooms = mycursor.fetchall()
+    availableHotels = []
+    for i in range(len(availablerooms)):
+        if availablerooms[i][1] in availableHotels:
+            pass
+        else:
+            availableHotels.append(availablerooms[i][1])
+        
+    return availableHotels
+
+    # mycursor.execute(f"SELECT check_in, check_out FROM trans;")
     
-    result = mycursor.fetchall()
+    # result = mycursor.fetchall()
     # checkin = result[0][0].strftime("%Y%m%d")
     # checkout = result[0][1].strftime("%Y%m%d")
-    checkin = result[0][0]
-    checkout = result[0][1]
-    city = 'Tulsa'
+    # checkin = result[0][0]
+    # checkout = result[0][1]
+    # city = 'Tulsa'
 
-    mycursor.execute(f"select hotel.id, hotelName, rooms.id from rooms join hotel on hotel.id = rooms.hotel_id where hotel.city = 'Tulsa'; ")
-    cityHotels = mycursor.fetchall()
-    rooms = []
-    for hotels in range(len(cityHotels)): 
-        rooms.append(cityHotels[hotels][2])
-    availableRooms = []
-    for i in range(len(rooms)):
-        mycursor.execute(f"call sp_roomsAvailable2('{checkin}','{checkout}',{int(rooms[0])});")
-        result2 = mycursor.fetchall()
-        availableRooms.append(result2)
-        sleep(10)
-        db.commit()
+    # mycursor.execute(f"select hotel.id, hotelName, rooms.id from rooms join hotel on hotel.id = rooms.hotel_id where hotel.city = 'Tulsa'; ")
+    # cityHotels = mycursor.fetchall()
+    # rooms = []
+    # for hotels in range(len(cityHotels)): 
+    #     rooms.append(cityHotels[hotels][2])
+    # NOTavailableRooms = []
+    # for i in range(len(rooms)):
+    #     mycursor.execute(f"call sp_roomsAvailable2('{checkin}','{checkout}',{int(rooms[2])});")
+    #     mycursor = db.cursor()
+    #     sleep(100)
+    #     result2 = mycursor.fetchall()
+    #     db.close()
+    #     NOTavailableRooms.append(result2)
+    
+    
+    # availableRooms.append(result2)
+    # for i in range(len(rooms)):
+    #     sleep(10)
+    #     db.commit()
     # if rooms[i] == result2[0][0]:
         #     rooms[i] = None
     # for x in range(len(rooms)):
@@ -105,7 +128,7 @@ def gethotels():
 
 
     
-    return availableRooms
+    # return NOTavailableRooms
 
     # return jsonify([{"checkin":checkin, "checkout":checkout}])
 
