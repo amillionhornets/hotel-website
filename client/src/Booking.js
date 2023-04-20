@@ -25,7 +25,7 @@ function Booking() {
       body: bodyObj
     })
   }
-  const seasons = ["Spring", "Summer", "Autumn", "Winter","super cool awesome amazinh hotel thingy fighting ring"];
+  const seasons = ["Spring", "Summer", "Autumn", "Winter","super cool awesome amazing hotel thingy fighting ring"];
   const [showfilters, setToggle] = useState(false)
 
   // const seasons = ["Spring"];
