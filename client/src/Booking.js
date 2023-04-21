@@ -7,27 +7,40 @@ import { GiCheckMark, GiCigarette, GiSittingDog } from "react-icons/gi";
 
 
 function Booking() {
-  const [data, setData] = useState({})
+  const [data, setData] = useState([[]])
   function postData() {
-    let location = document.getElementById('where').value;
-    let date = document.getElementById('date').value;
-    let people = document.getElementById('people').value;
+    // let location = document.getElementById('where').value;
+    // let date = document.getElementById('date').value;
+    // let people = document.getElementById('people').value;
 
+    // let jsonObj = {
+    //   "location": location,
+    //   "date": date,
+    //   'people': people
+    // }
+    // let bodyObj = JSON.stringify(jsonObj)
     let jsonObj = {
-      "location": location,
-      "date": date,
-      'people': people
+
     }
     let bodyObj = JSON.stringify(jsonObj)
 
-    fetch('/Booking', {
-      method: 'POST',
+    fetch("/Hotels",{
+      method:"POST",
       body: bodyObj
-    })
-  }
-  const seasons = ["Spring", "Summer", "Autumn", "Winter","super cool awesome amazing hotel thingy fighting ring"];
+    }
+    ).then(
+      res => res.json()
+      ).then(
+        data => {
+          setData(data)
+        }
+        )}
+  
+  const seasons = data;
   const [showfilters, setToggle] = useState(false)
-
+  useEffect(() =>{
+    postData()
+  }, [])
   // const seasons = ["Spring"];
   return (
     <>
@@ -76,8 +89,8 @@ function Booking() {
                 <img src="Marriott.jpg" className='h-full' alt="hotel" />
                 <div className=' block w-full w- overflow-hidden px-2 py-1'>
                   <div className=''>
-                    <p className=' font-bold text-lg '>Hotel {season}</p>
-                    <p className=''>city name</p> 
+                    <p className=' font-bold text-lg '>{season[0][1]}</p>
+                    <p className=''>{season[0][2]}</p> 
                   </div>
                   <div className=' '>
                     <p className='flex'><GiCigarette className=''/><GiSittingDog/></p>

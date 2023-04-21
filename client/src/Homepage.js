@@ -17,11 +17,7 @@ function Homepage() {
           <h2 className='text-xl my-2'>Great Deals are Awaiting</h2>
         </div>
       </div>
-<<<<<<< Updated upstream
-      <div className='px-1 top-72 absolute w-full'>
-=======
       <div className='px-1 top-64 absolute w-full'>
->>>>>>> Stashed changes
         <div className=' bg-HotelNavy p-2 mx-auto'>
           <form action="">
             {/* Where To */}

@@ -62,6 +62,12 @@ def userInfo():
     username = req['username']
     return getUserInfo(username)
 
+@app.route('/Hotels', methods=['POST'])
+def hotel():
+    req = request.get_json(force=True)
+    print(req)
+    return jsonify(gethotels())
+
 # Default Page
 @app.route('/', methods=['GET'])
 def home():
