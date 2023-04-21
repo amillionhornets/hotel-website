@@ -54,12 +54,6 @@ def booked():
     canBook = booking(location, dateBooked, people)
     return(jsonify({"canBook": canBook}))
 
-# Get hotel rooms and name
-@app.route('/Hotels', methods = ['POST'])
-def Hotels():
-    # req = request.get_json(force=True)
-    hotels = gethotels()
-    return hotels
 
 # POST the user info based off the username
 @app.route('/userInfo', methods=['POST'])
