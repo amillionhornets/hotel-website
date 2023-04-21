@@ -15,7 +15,6 @@ export default function Navbar() {
                 "username" : username[1],
                 "isLoggedIn" : login[1]
             }
-            
             return info
         }
         return "false"
@@ -34,6 +33,7 @@ export default function Navbar() {
     useEffect(() => {
         getCookies()
     }, [])
+    console.log(document.cookie)
   const [showlist, setToggle] = useState(false)
   return (
     <nav className=' bg-HotelWater p-5 shadow flex md:items-center justify-between text-white'>

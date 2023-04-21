@@ -6,10 +6,12 @@ function BusinessSignUp() {
     let username = document.getElementById("username").value;
     let email = document.getElementById("email").value;
     let pass = document.getElementById("pass").value;
+
     // let conPass = document.getElementById("conPass").value;
     // if(pass != conPass){
     //   throw "Enter the Identical Password";
     // }
+    
     let jsonObj = {"username": ""+username+"", "email": ""+email+"", "password": ""+pass+""};
     let bodyObj = JSON.stringify(jsonObj, null, 4);
     fetch("/businessesSign",{
