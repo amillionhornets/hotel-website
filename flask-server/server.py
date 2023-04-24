@@ -65,7 +65,7 @@ def userInfo():
 @app.route('/Hotels', methods=['POST'])
 def hotel():
     req = request.get_json(force=True)
-    print(req)
+    # print(req)
     return jsonify(gethotels())
 
 # Default Page
