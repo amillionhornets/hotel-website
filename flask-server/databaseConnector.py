@@ -111,14 +111,13 @@ def gethotels():
 
 # Returns Information about the user on 
 def getUserInfo(username):
+    mycursor.execute(f"use testLogin;")
     mycursor.execute(f"SELECT email, phoneNum FROM userpass WHERE username='{username}';")
     result = mycursor.fetchall()
     # print(result[0][0])
     email = result[0][0]
     phoneNum = result[0][1]
     return jsonify([{"email":email, "phoneNum":phoneNum}])
-
-
 
 def main():
     print("Error Ran the Database Connector File")

@@ -54,7 +54,6 @@ def booked():
     canBook = booking(location, dateBooked, people)
     return(jsonify({"canBook": canBook}))
 
-
 # POST the user info based off the username
 @app.route('/userInfo', methods=['POST'])
 def userInfo():

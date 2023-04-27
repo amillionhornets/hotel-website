@@ -9,9 +9,11 @@ export default function Navbar() {
         if(currentCookies != ""){
             let cookies = document.cookie;        
             let splitCookie = cookies.split(";")
-            let username = splitCookie[0].split("=");
-            let login = splitCookie[1].split("=");
+            let token = splitCookie[0].split("=");
+            let username = splitCookie[1].split("=");
+            let login = splitCookie[2].split("=");
             let info = {
+                "csrftoken": token[1],
                 "username" : username[1],
                 "isLoggedIn" : login[1]
             }
@@ -20,7 +22,10 @@ export default function Navbar() {
         return "false"
     }
     // Checks to see if the user is logged in
-    let log = false;
+    let log = true;
+    useEffect(() => {
+        getCookies()
+    }, [])
     var loggedIn = getCookies().isLoggedIn;
     if (loggedIn == "true"){
          log = true
@@ -30,10 +35,7 @@ export default function Navbar() {
     function changeUrl(){
         window.location.replace("http://localhost:3000/Account")
     }
-    useEffect(() => {
-        getCookies()
-    }, [])
-    console.log(document.cookie)
+    console.log(getCookies().username)
   const [showlist, setToggle] = useState(false)
   return (
     <nav className=' bg-HotelWater p-5 shadow flex md:items-center justify-between text-white'>
@@ -68,7 +70,7 @@ export default function Navbar() {
                 <a href={'#'}>Trips</a>
             </li>
             {
-                log? 
+                true? 
                 <>
                     <button onClick={changeUrl}>
                             <li className='mx-4 rounded-full w-10 h-10 bg-white'><VscAccount className='w-10 h-10 text-gray-600'/></li>

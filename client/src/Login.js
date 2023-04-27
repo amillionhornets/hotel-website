@@ -48,7 +48,7 @@ function Login() {
   
     return (
       <>
-      <Navbar />
+      {/* <Navbar /> */}
         <main className="text-gray-600 text-center">
           <p className="pt-10 font-bold">Login</p>
           <label>Username: <input type="text" id="name" className="border-2 border-black"/></label><br></br>

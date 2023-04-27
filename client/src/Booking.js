@@ -48,7 +48,7 @@ function Booking() {
 
     return (
       <>
-        <Navbar />
+        {/* <Navbar /> */}
         <div className='text-lg'>
             {/* SHOW FILTERS */}
               {showfilters && (

@@ -8,17 +8,16 @@ function Account() {
     document.cookie = "username=;";
     document.cookie = "isLoggedIn=false";
   }
-
+  // Gets the username out of the cookies to use in a query
   function getCookies(){
     let thing = document.cookie
     if(thing != ""){
         let cookies = document.cookie;        
         let splitCookie = cookies.split(";")
-        let username = splitCookie[0].split("=");
+        let username = splitCookie[1].split("=");
         let stuff = {
             "username" : username[1],
         }
-        
         return stuff
     }
     return "false"
